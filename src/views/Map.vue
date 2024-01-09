@@ -4,7 +4,7 @@
  * @Author: AaroLi
  * @Date: 2024-01-03 09:33:21
  * @LastEditors: AaroLi
- * @LastEditTime: 2024-01-08 11:06:14
+ * @LastEditTime: 2024-01-09 02:23:26
 -->
 <template>
 	<div class="app">
@@ -16,7 +16,7 @@
 		<el-amap @update:zoom="onUpdatedZoom" v-model:center="center" :zoom="zoom">
 			<!-- 地图标记 -->
 			<el-amap-marker :visible="textVisible" v-for="marker in markers" :key="marker.id" :position="marker.position"
-				:icon="getImgType(marker.type)" :offset="[-45, -37]" :iconSize="[5, 5]"
+				:icon="getImgType(marker.type)" :offset="[-45, -34]" :iconSize="[5, 5]"
 				@click="(e) => { clickArrayMarker(marker, e) }">
 				<div class="marker-content">
 					<div class="title">{{ marker.title }}</div>
@@ -56,7 +56,7 @@
 					<div v-if="getSession('TOKEN') == 'admin'" class="Mapinfo">
 						<div class="Mapinfo_box">
 							<div>项目主任：<span>{{ locationObj.name }}</span></div>
-							<div class="ml585">联系方式：<span>{{ locationObj.phone }}</span></div>
+							<div class="ml505">联系方式：<span>{{ locationObj.phone }}</span></div>
 						</div>
 						<div class="Mapinfo_box mt15">
 							<div>项目面积：<span>{{ locationObj.mj }}</span></div>
@@ -93,19 +93,19 @@ const mapDetailShow = ref(false) //地图prop
 const loading = ref(false) //地图loading
 // 地图标记
 const markers = ref([
-	{ id: 1, object: '万家', position: [120.01, 30.040], type: '1', title: '富阳旅游项目', locationObj: { title: '富阳旅游项目', name: '张涵', phone: '17232111322', mj: '21.5万㎡', wyf: '1.9元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区富春路3201室', distanc: '8.6KM' } },
-	{ id: 2, object: '新城', position: [120.012, 30.080], type: '2', title: '基村招商项目', locationObj: { title: '基村招商项目', name: '建华', phone: '17247987412', mj: '30.72万㎡', wyf: '2.4元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区吉村路320室', distanc: '12.15KM' } },
-	{ id: 3, object: '海岸', position: [120.036, 30.060], type: '3', title: '春江度假项目', locationObj: { title: '春江度假项目', name: '汪明', phone: '18647619988', mj: '60.72万㎡', wyf: '3.6元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区春江路204铺', distanc: '14.74KM' } },
-	{ id: 4, object: '浙中南', position: [120.032, 30.019], type: '4', title: '唐家物业项目', locationObj: { title: '唐家物业项目', name: '李萧', phone: '18647618189', mj: '20.12万㎡', wyf: '2.6元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区自在路32号', distanc: '14.51KM' } },
-	{ id: 5, object: '萧山滨弘', position: [120.009, 30.001], type: '5', title: '自在村园项目', locationObj: { title: '自在村园项目', name: '张健', phone: '18647618284', mj: '12.32万㎡', wyf: '1.6元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区陈家路', distanc: '12.3KM' } },
-	{ id: 6, object: '万家', position: [120.07, 30.0441], type: '1', title: '李山镇乡项目', locationObj: { title: '李山镇乡项目', name: '李潇', phone: '14777061444', mj: '40.22万㎡', wyf: '7.6元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区灵山区', distanc: '11.8KM' } },
-	{ id: 7, object: '新城', position: [120.072, 30.080], type: '2', title: '桥头招商项目', locationObj: { title: '桥头招商项目', name: '吴枝', phone: '18644110012', mj: '24.42万㎡', wyf: '4.6元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区唐家路32号', distanc: '10.91KM' } },
-	{ id: 8, object: '海岸', position: [120.069, 30.060], type: '3', title: '东洲赵家项目', locationObj: { title: '东洲赵家项目', name: '李渺', phone: '15247860031', mj: '33.12万㎡', wyf: '3.6元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区自在路76号', distanc: '19.57KM' } },
-	{ id: 9, object: '浙中南', position: [120.072, 30.019], type: '4', title: '家装物业项目', locationObj: { title: '家装物业项目', name: '沈红', phone: '14777966321', mj: '15.72万㎡', wyf: '2.53元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区陈家路96号', distanc: '17.34KM' } },
-	{ id: 10, object: '萧山滨弘', position: [120.099, 30.001], type: '5', title: '森林公园项目', locationObj: { title: '森林公园项目', name: '晓蓉', phone: '14247562211', mj: '70.72万㎡', wyf: '2.2元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区灵山31号', distanc: '17.32KM' } },
+	{ id: 1, object: '万家', position: [120.01, 30.040], type: '1', title: '富阳旅游项目', locationObj: { title: '富阳旅游项目', name: '张邵涵', phone: '17232111322', mj: '21.5万㎡', wyf: '1.9元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区富春路3201室', distanc: '8.6KM' } },
+	{ id: 2, object: '新城', position: [120.012, 30.080], type: '2', title: '基村招商项目', locationObj: { title: '基村招商项目', name: '汪建华', phone: '17247987412', mj: '30.72万㎡', wyf: '2.4元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区吉村路320室', distanc: '12.15KM' } },
+	{ id: 3, object: '海岸', position: [120.036, 30.060], type: '3', title: '春江度假项目', locationObj: { title: '春江度假项目', name: '汪慧明', phone: '18647619988', mj: '60.72万㎡', wyf: '3.6元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区春江路204铺', distanc: '14.74KM' } },
+	{ id: 4, object: '浙中南', position: [120.032, 30.019], type: '4', title: '唐家物业项目', locationObj: { title: '唐家物业项目', name: '李萧萧', phone: '18647618189', mj: '20.12万㎡', wyf: '2.6元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区自在路32号', distanc: '14.51KM' } },
+	{ id: 5, object: '萧山滨弘', position: [120.009, 30.001], type: '5', title: '自在村园项目', locationObj: { title: '自在村园项目', name: '张行健', phone: '18647618284', mj: '12.32万㎡', wyf: '1.6元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区陈家路', distanc: '12.3KM' } },
+	{ id: 6, object: '万家', position: [120.07, 30.0441], type: '1', title: '李山镇乡项目', locationObj: { title: '李山镇乡项目', name: '李潇然', phone: '14777061444', mj: '40.22万㎡', wyf: '7.6元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区灵山区', distanc: '11.8KM' } },
+	{ id: 7, object: '新城', position: [120.072, 30.080], type: '2', title: '桥头招商项目', locationObj: { title: '桥头招商项目', name: '吴祖枝', phone: '18644110012', mj: '24.42万㎡', wyf: '4.6元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区唐家路32号', distanc: '10.91KM' } },
+	{ id: 8, object: '海岸', position: [120.069, 30.060], type: '3', title: '东洲赵家项目', locationObj: { title: '东洲赵家项目', name: '李渺淼', phone: '15247860031', mj: '33.12万㎡', wyf: '3.6元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区自在路76号', distanc: '19.57KM' } },
+	{ id: 9, object: '浙中南', position: [120.072, 30.019], type: '4', title: '家装物业项目', locationObj: { title: '家装物业项目', name: '沈万红', phone: '14777966321', mj: '15.72万㎡', wyf: '2.53元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区陈家路96号', distanc: '17.34KM' } },
+	{ id: 10, object: '萧山滨弘', position: [120.099, 30.001], type: '5', title: '森林公园项目', locationObj: { title: '森林公园项目', name: '祝晓蓉', phone: '14247562211', mj: '70.72万㎡', wyf: '2.2元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区灵山31号', distanc: '17.32KM' } },
 ])
 const markersAll = ref([
-	{ id: 1, object: '万家', position: [120.01, 30.040], type: '1', title: '富阳旅游项目', locationObj: { title: '富阳旅游项目', name: '张涵', phone: '17232111322', mj: '21.5万㎡', wyf: '1.9元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区富春路3201室', distanc: '8.6KM' } },
+	{ id: 1, object: '万家', position: [120.01, 30.040], type: '1', title: '富阳旅游项目', locationObj: { title: '富阳旅游项目', name: '张邵涵', phone: '17232111322', mj: '21.5万㎡', wyf: '1.9元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区富春路3201室', distanc: '8.6KM' } },
 	{ id: 2, object: '新城', position: [120.012, 30.080], type: '2', title: '基村招商项目', locationObj: { title: '基村招商项目', name: '建华', phone: '17247987412', mj: '30.72万㎡', wyf: '2.4元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区吉村路320室', distanc: '12.15KM' } },
 	{ id: 3, object: '海岸', position: [120.036, 30.060], type: '3', title: '春江度假项目', locationObj: { title: '春江度假项目', name: '汪明', phone: '18647619988', mj: '60.72万㎡', wyf: '3.6元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区春江路204铺', distanc: '14.74KM' } },
 	{ id: 4, object: '浙中南', position: [120.032, 30.019], type: '4', title: '唐家物业项目', locationObj: { title: '唐家物业项目', name: '李萧', phone: '18647618189', mj: '20.12万㎡', wyf: '2.6元/㎡/月', type: 'title1', contant: '浙江省杭州市富阳区自在路32号', distanc: '14.51KM' } },
@@ -120,7 +120,7 @@ const zoom = ref(12)
 // 比例尺
 const ScaleVisible = ref(false)
 // 文本标记
-const textVisible = ref(false)
+const textVisible = ref(true)
 // 缩放控件
 const ScalinVisible = ref(false)
 // 地图类型切换
@@ -175,7 +175,7 @@ const handleSearch = (v) => {
 };
 // 显示地图文本标记事件
 const textChange = (v) => {
-	textVisible.value = v
+	// textVisible.value = v
 }
 // 筛选点事件
 const selectList = (v) => {
@@ -272,10 +272,11 @@ onMounted(() => {
 
 .block {
 	width: 330px;
-	height: 253px;
+	/* height: 253px; */
 	background: #FFFFFF;
 	border-radius: 8px;
 	position: relative;
+	padding-bottom: 10px;
 }
 
 .closeBtn {
@@ -294,7 +295,7 @@ onMounted(() => {
 
 .Mapcontant {
 	width: 225px;
-	height: 14px;
+	/* height: 14px; */
 	font-size: 13px;
 	font-weight: 400;
 	color: #7A868D;
@@ -379,8 +380,8 @@ onMounted(() => {
 	margin-top: 10px;
 }
 
-.ml585 {
-	margin-left: 58.5px;
+.ml505 {
+	margin-left: 50.5px;
 }
 
 .ml385 {
