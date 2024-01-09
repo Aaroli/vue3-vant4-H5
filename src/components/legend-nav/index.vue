@@ -4,7 +4,7 @@
  * @Author: AaroLi
  * @Date: 2024-01-03 11:27:10
  * @LastEditors: AaroLi
- * @LastEditTime: 2024-01-04 16:01:35
+ * @LastEditTime: 2024-01-09 02:51:10
 -->
 <template>
 	<div class="legend_nav">
@@ -14,7 +14,8 @@
 		<div class="box">
 			<div class="tab-content" ref="stateDom">
 				<div class="tab-content-box">
-					<div class="allBox" :class="isChange === 0 ? 'activeBox' : ''" @click="change(0)">全部</div>
+					<!-- <van-icon name="success" /> -->
+					<div class="allBox" :class="isChange === 0 ? 'activeBox' : ''" @click="change(0)">全部 </div>
 					<p v-for="item in legendList" :key="item.id" :class="isChange === item.id ? 'activeBox' : ''"
 						@click="change(item.id)"><span :class="getClass(item.id)"></span>{{ item.name }}</p>
 					<div class="closeBox">
@@ -129,7 +130,7 @@ const change = (v) => {
 		p {
 			display: flex;
 			padding: 0;
-			margin: 0px 5px 5px 5px;
+			margin: 0px 5px 0px 5px;
 			padding: 7px 16px;
 		}
 
@@ -183,11 +184,10 @@ const change = (v) => {
 .closeBox {
 	text-align: center;
 	padding: 5px 0px;
-
 }
 
 .allBox {
-	margin: 5px;
+	margin: 5px 5px 0px 5px;
 }
 
 .activeBox {
@@ -199,7 +199,7 @@ const change = (v) => {
 
 .closeBox {
 	padding: 3px 0 0 0;
-	margin: 0 5px;
+	margin: 5px 5px 0px 5px;
 	border-top: 1px solid #D2D9E3;
 }
 </style>
