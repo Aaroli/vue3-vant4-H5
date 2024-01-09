@@ -4,7 +4,7 @@
  * @Author: AaroLi
  * @Date: 2024-01-03 09:38:41
  * @LastEditors: AaroLi
- * @LastEditTime: 2024-01-08 10:53:00
+ * @LastEditTime: 2024-01-09 02:42:52
 -->
 <template>
   <div class="header__nav">
@@ -17,8 +17,9 @@
             <div class="Category__box">
               <div class="title">类别</div>
               <div class="clickBox">
-                <div :class="isChange === 1 ? 'activeBox' : ''" @click="change(1)">实管</div>
-                <div :class="isOtherChange === 1 ? 'activeBox' : ''" @click="otherChange(1)" class="ml18">前期</div>
+                <div :class="isChange === 1 ? 'activeBox' : ''" @click="change(isChange === 1 ? null : 1)">实管</div>
+                <div :class="isOtherChange === 1 ? 'activeBox' : ''" @click="otherChange(isOtherChange === 1 ? null : 1)"
+                  class="ml18">前期</div>
               </div>
               <div class="btn">
                 <div class="btn_left" @click="reset">重置</div>

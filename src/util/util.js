@@ -4,7 +4,7 @@
  * @Author: AaroLi
  * @Date: 2023-12-30 15:40:52
  * @LastEditors: AaroLi
- * @LastEditTime: 2024-01-08 10:46:36
+ * @LastEditTime: 2024-01-09 02:39:25
  */
 import { showToast } from "vant";
 import wx from "weixin-js-sdk"; //引入WX sdk
